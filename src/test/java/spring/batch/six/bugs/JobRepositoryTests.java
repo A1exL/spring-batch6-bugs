@@ -76,7 +76,6 @@ class JobRepositoryTests {
 
     @Test
     void findRunningJobExecutions_shouldNotThrowExceptionForSuccessfullyCompletedJob() throws Exception {
-        new JobRepositoryTestUtils(jobRepository).removeJobExecutions();
         JobOperatorTestUtils jobOperatorTestUtils = new JobOperatorTestUtils(jobOperator, jobRepository);
         jobOperatorTestUtils.setJob(successfulJob);
         JobExecution jobExecution = jobOperatorTestUtils.startJob();
@@ -91,7 +90,6 @@ class JobRepositoryTests {
 
     @Test
     void findRunningJobExecutions_shouldNotThrowExceptionForFailedJob() throws Exception {
-        new JobRepositoryTestUtils(jobRepository).removeJobExecutions();
         JobOperatorTestUtils jobOperatorTestUtils = new JobOperatorTestUtils(jobOperator, jobRepository);
         jobOperatorTestUtils.setJob(failingJob);
         JobExecution jobExecution = jobOperatorTestUtils.startJob();
